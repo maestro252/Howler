@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
-  respond_to :json
 
   def create
     @user = User.new create_params
+    redirect_to @user if @user.save
+    render :new if !(@user.save)
+  end
 
-    render json: {success: true, user: @user},  except: [:password, :salt] if @user.save
-    render json: {success: false, errors: @user.errors} if !(@user.save)
+  def new
+    @user = User.new
   end
 
   def update
