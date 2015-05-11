@@ -15,6 +15,7 @@ class User
   before_save :encrypt_password
   validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   validates_uniqueness_of :username, :email
+  validates :password, confirmation: true 
 
   def self.encrypt(password, salt)
     Digest::SHA2.hexdigest "#{password}/#{salt}"

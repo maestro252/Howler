@@ -1,6 +1,26 @@
-<html>
-  <h1>Nuevo Usuario</h1>
-  <p>
-    Recordando como usar HTML solo que esta vez está en rails 
-  </p>
-</html>
+
+  <h1>Welcome to Howler Registration!</h1>
+  <%= form_for @user do |x| %>
+  <label>Name</label>
+  <%= x.text_field :name %>
+  <br>
+  <label>Lastname</label>
+  <%= x.text_field :lastname %>
+  <br>
+  <label>Username</label>
+  <%= x.text_field :username %>
+  <br>
+  <label>Birthdate (MM/DD/YYYY)</label>
+  <%= x.text_field :birthdate %>
+  <br>
+  <label>Password</label>
+  <%= x.password_field :password %>
+  <br>
+  <label>Password confirmation</label>
+  <%= x.password_field :password_comfirmation %>
+  <br>
+  <label>E-mail</label>
+  <%= x.text_field :email %>
+  <br>
+  <%= x.submit "Register" %>
+  <% end %>

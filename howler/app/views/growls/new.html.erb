@@ -1,0 +1,8 @@
+<h1>New growl!</h1>
+<%= form_for @growl do |x| %>
+<label>what do you want to howl?</label>
+<br>
+<%= x.text_area :content %>
+<br>
+<%= x.submit "Howl it!" %>
+<% end %>
